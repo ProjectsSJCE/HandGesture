@@ -25,8 +25,6 @@ img = imresize(img, [frame_size frame_size]);
 img(img < 0.45 | img >= 0.9) = 1.0;
 img(img < 0.9 & img >= 0.45) = 0.0;
 
-#What you are doing now is, you took the colour of blue, then suppressed blue to white and remaining to black right? Hence its limited to blue background.
-#What if we take the gray scale value for skin colour and then make all the values in the range of skin colour to be black, remaining as white. Times when this would fail is if he is wearing gloves or if the background is very much like skin colour, obviously the chances of this happening is lower than previous.
-#I could not find the gray scale value for skin colour
+
 
 end

@@ -10,7 +10,7 @@ img = imread ("blue.jpg");
 
 #Blackens the palm
 [img] = blacken_palm(img, frame_size);
-#imshow(img); #undocument to see blackened hand
+imshow(img); #undocument to see blackened hand
 #pause;
 
 #Filters the image
