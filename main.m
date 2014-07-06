@@ -1,7 +1,7 @@
 #Set the sizes on the image and frames
 max_row = 1000;
 max_col = 1000;
-frame_size = 70;
+frame_size = 100;
 
 #Reads the Image
 #img = imread ("hand.jpg");
