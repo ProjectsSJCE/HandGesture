@@ -40,7 +40,9 @@ X = zeros(1, total);
 C = 1;
 %sigma = 0.3;
 sigma = 0.1;
+
 #putting all features into a row vector
+#but does this make sense? After applying PCA in the way we did apply
 for index = 1:total
     X(index) = Z(index);
     end;
