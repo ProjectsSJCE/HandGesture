@@ -32,4 +32,19 @@ K = 10;
 Z = projectData(img_norm, U, K);
 #imshow(Z); #Undocument to see pca
 
+total = frame_size * K;
+
+X = zeros(1, total);
+
+#Have to decide on C and sigma values
+C = 1;
+%sigma = 0.3;
+sigma = 0.1;
+#putting all features into a row vector
+for index = 1:total
+    X(index) = Z(index);
+    end;
+y = 1;    
+#model = svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2,sigma));
+
 #===========================================================================================================
