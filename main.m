@@ -34,7 +34,7 @@ Z = projectData(img_norm, U, K);
 
 total = frame_size * K;
 
-X = zeros(1, total);
+X = zeros(2, total);
 
 #Have to decide on C and sigma values
 C = 1;
@@ -44,9 +44,12 @@ sigma = 0.1;
 #putting all features into a row vector
 #but does this make sense? After applying PCA in the way we did apply
 for index = 1:total
-    X(index) = Z(index);
+    X(1,index) = Z(index);
+    X(2,index) = Z(index) + 0.5;
     end;
-y = 1;    
-#model = svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2,sigma));
-
+y = [1;0]; 
+#X = [1,2;3,4];   
+model = svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2,sigma));
+predictions = svmPredict(model, X);
+disp(predictions);
 #===========================================================================================================
