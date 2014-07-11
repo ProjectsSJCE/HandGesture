@@ -41,7 +41,7 @@ img = imread (file);
 #pause;
 #Have to decide on C and sigma values
 C = 0.05;
-
+#sigma = 0.3;
 #putting all features into a row vector
 #but does this make sense? After applying PCA in the way we did apply
 #disp((training_size*(count-1)) + iter);
@@ -56,7 +56,6 @@ end;
 #C = 0.03;
 disp("training");
 #size(X)
-#sigma = 0.3;
 #model = svmTrain(X, y, C, @gaussianKernel);
 #model = svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma));
 model = svmTrain(X, y, C, @linearKernel);
