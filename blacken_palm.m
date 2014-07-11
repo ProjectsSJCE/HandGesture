@@ -2,7 +2,7 @@ function [img] = blacken_palm(img, frame_size)
 
 
 #Function is just thresholding the image, also seperates the foreground from background
-
+###
 #Converting the image to gray scay
 rgb = img;
 [x, map] = rgb2ind(img);

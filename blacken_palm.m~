@@ -11,10 +11,10 @@ img = ind2gray (x, map);
 img = img / 255.0;
 
 #Pass the image through a low pass filter, this is done to make the size reduction more smooth, thus retaining a lot of info
-low_pass = zeros(3, 3) .+ (1 / 9);
-im1 = img;
-im1 = imfilter(im1, low_pass, "replicate");
-img = im1;
+#low_pass = zeros(3, 3) .+ (1 / 9);
+#im1 = img;
+#im1 = imfilter(im1, low_pass, "replicate");
+#img = im1;
 
 #Reduce the size of the image
 img = imresize(img, [frame_size frame_size]);
