@@ -1,4 +1,4 @@
-function [edgeImage] = blacken_palm(img, frame_size)
+function [img] = blacken_palm(img, frame_size)
 
 #Converting the image to gray scay
 rgb = img;
@@ -14,4 +14,7 @@ H = conv2(double(img),k, 'same');
 V = conv2(double(img),k','same');
 E = sqrt(H.*H + V.*V);
 edgeImage = uint8((E > threshold) * 255);
-imshow(edgeImage);
+edgeImage = imresize(edgeImage, [frame_size frame_size]);
+img = imresize(img, [frame_size frame_size]);
+img(:,:) = edgeImage(:,:);
+#imshow(edgeImage);
