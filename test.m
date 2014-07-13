@@ -40,12 +40,13 @@ for iter = 1:training_size,
     [img] = blacken_palm(img, frame_size);
 #    imshow(img);
 #    pause;
-
+    img_transpose = img';
 #putting all features into a row vector
     for index = 1:total
 #       X((training_size*(count-1)) + iter,index) = img(index);
-        X(iter,index) = img(index);
+        X(iter,index) = img_transpose(index);
     endfor;
+    
 endfor;
 disp("starting");
 #Does featureNormalize
@@ -90,8 +91,9 @@ for iter = 1:test_size,
     [img] = blacken_palm(img, frame_size);
     #imshow(img);
     #pause;
+    img_transpose = img';
     for index = 1:total
-        X_test(iter,index) = img(index);
+        X_test(iter,index) = img_transpose(index);
     endfor;
 endfor;
 
