@@ -5,7 +5,7 @@ frame_size = 100;
 flag = 0;
 base_a = "A";
 base_b = "B";
-K = 100;
+K = 50;
 
 C = 0.05;# The value with least validation error
 #sigma = 
@@ -47,19 +47,21 @@ for iter = 1:training_size,
         X(iter,index) = img(index);
     endfor;
 endfor;
-
+disp("starting");
 #Does featureNormalize
-#[img_norm, mu, sigma] = featureNormalize(X);
-#imshow(img_norm); #Undocument to see the normalised hand
-#pause;
+[img_norm, mu, sigma] = featureNormalize(X);
+imshow(img_norm); #Undocument to see the normalised hand
+pause;
 
-#disp("Now starting pca");
-#[U, S] = pca(img_norm, frame_size, frame_size);
-#disp("Done with pca");
-#Z = projectData(img_norm, U, K);
-#X = Z;
-#imshow(Z); #Undocument to see pca
-#pause;
+disp("Now starting pca");
+pause;
+[U, S] = pca(img_norm, frame_size, frame_size);
+disp("Done with pca");
+Z = projectData(img_norm, U, K);
+X = Z;
+imshow(Z); #Undocument to see pca
+disp("paused");
+pause;
 
 disp("training");
 #model = svmTrain(X, y, C, @gaussianKernel);
@@ -94,18 +96,18 @@ for iter = 1:test_size,
 endfor;
 
 #Does featureNormalize
-#[img_norm, mu, sigma] = featureNormalize(X_test);
-#imshow(img_norm); #Undocument to see the normalised hand
-#pause;
+[img_norm, mu, sigma] = featureNormalize(X_test);
+imshow(img_norm); #Undocument to see the normalised hand
+pause;
 
-#disp("Now starting pca");
+disp("Now starting pca");
 #PCA
-#[U, S] = pca(img_norm, frame_size, frame_size);
-#disp("Done with pca");
-#Z = projectData(img_norm, U, K);
-#imshow(Z); #Undocument to see pca
-#pause;
-#X_test = Z;
+[U, S] = pca(img_norm, frame_size, frame_size);
+disp("Done with pca");
+Z = projectData(img_norm, U, K);
+imshow(Z); #Undocument to see pca
+pause;
+X_test = Z;
 
 disp("predicting");
 predictions = svmPredict(model, X_test);
