@@ -1,7 +1,7 @@
 #Set the sizes on the image and frames
 max_row = 1000;
 max_col = 1000;
-frame_size = 100;
+frame_size = 80;
 flag = 0;
 base_a = "A";
 base_b = "B";
@@ -54,15 +54,15 @@ disp("starting.");
 #imshow(img_norm); #Undocument to see the normalised hand
 #pause;
 
-disp("Now starting pca.");
-#pause;
+disp("Now starting pca. Press enter.");
+pause;
 [U, S] = pca(img_norm, frame_size, frame_size);
 disp("Done with pca.");
 Z = projectData(img_norm, U, K);
 X = Z;
 #imshow(Z); #Undocument to see pca
-#disp("paused, press enter");
-#pause;
+disp("paused, press enter");
+pause;
 
 disp("training");
 #model = svmTrain(X, y, C, @gaussianKernel);
@@ -100,7 +100,8 @@ endfor;
 #Does featureNormalize
 [img_norm, mu, sigma] = featureNormalize(X_test);
 #imshow(img_norm); #Undocument to see the normalised hand
-#pause;
+disp("Paused, Press enter.");
+pause;
 
 disp("Now starting pca");
 #PCA
