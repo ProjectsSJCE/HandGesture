@@ -42,27 +42,27 @@ for iter = 1:training_size,
 #    pause;
     img_transpose = img';
 #putting all features into a row vector
-    for index = 1:total
+    for index = 1:total,
 #       X((training_size*(count-1)) + iter,index) = img(index);
         X(iter,index) = img_transpose(index);
     endfor;
     
 endfor;
-disp("starting");
+disp("starting.");
 #Does featureNormalize
 [img_norm, mu, sigma] = featureNormalize(X);
-imshow(img_norm); #Undocument to see the normalised hand
-pause;
+#imshow(img_norm); #Undocument to see the normalised hand
+#pause;
 
-disp("Now starting pca");
-pause;
+disp("Now starting pca.");
+#pause;
 [U, S] = pca(img_norm, frame_size, frame_size);
-disp("Done with pca");
+disp("Done with pca.");
 Z = projectData(img_norm, U, K);
 X = Z;
-imshow(Z); #Undocument to see pca
-disp("paused");
-pause;
+#imshow(Z); #Undocument to see pca
+#disp("paused, press enter");
+#pause;
 
 disp("training");
 #model = svmTrain(X, y, C, @gaussianKernel);
@@ -99,16 +99,17 @@ endfor;
 
 #Does featureNormalize
 [img_norm, mu, sigma] = featureNormalize(X_test);
-imshow(img_norm); #Undocument to see the normalised hand
-pause;
+#imshow(img_norm); #Undocument to see the normalised hand
+#pause;
 
 disp("Now starting pca");
 #PCA
 [U, S] = pca(img_norm, frame_size, frame_size);
 disp("Done with pca");
 Z = projectData(img_norm, U, K);
-imshow(Z); #Undocument to see pca
-pause;
+#imshow(Z); #Undocument to see pca
+#disp("press enter");
+#pause;
 X_test = Z;
 
 disp("predicting");
