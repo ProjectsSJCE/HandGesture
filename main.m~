@@ -77,7 +77,7 @@ end;
 sigma = 0.3;
 C = 0.1;
 model = svmTrain(X, y, C, @linearKernel);
-model = svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2));
+#model = svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2));
 #Testing
 flag = 0;
 X_test = zeros(test_size, total);
