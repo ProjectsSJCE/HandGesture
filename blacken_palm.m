@@ -8,7 +8,7 @@ img = ind2gray (x, map);
 img = img / 255.0;
 
 #Function is just thresholding the image, also seperates the foreground from background
-threshold = 0.3;
+threshold = 0.2;
 k = [1 2 1; 0 0 0; -1 -2 -1];
 H = conv2(double(img),k, 'same');
 V = conv2(double(img),k','same');
