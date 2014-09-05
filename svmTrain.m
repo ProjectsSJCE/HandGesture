@@ -19,13 +19,16 @@ function [model] = svmTrain(X, Y, C, kernelFunction, ...
 %           SVMLight (http://svmlight.joachims.org/)
 %
 %
-
+#Y
+#pause;
 if ~exist('tol', 'var') || isempty(tol)
     tol = 1e-3;
+#    tol = 1;
 end
 
 if ~exist('max_passes', 'var') || isempty(max_passes)
     max_passes = 5;
+#    max_passes = 50;
 end
 
 % Data parameters
@@ -34,7 +37,8 @@ n = size(X, 2);
 
 % Map 0 to -1
 Y(Y==0) = -1;
-
+#Y
+#pause;
 % Variables
 alphas = zeros(m, 1);
 b = 0;

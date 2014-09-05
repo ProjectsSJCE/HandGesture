@@ -11,6 +11,8 @@ function pred = svmPredict(model, X)
 % need to do prediction for a single example
 if (size(X, 2) == 1)
     % Examples should be in rows
+    disp("I came here");
+    pause;
     X = X';
 end
 
@@ -23,6 +25,12 @@ if strcmp(func2str(model.kernelFunction), 'linearKernel')
     % We can use the weights and bias directly if working with the 
     % linear kernel
     p = X * model.w + model.b;
+##    size(X)
+#    model.w
+#    pause;
+#    model.b
+#    disp("paused");
+#    pause;
 elseif strfind(func2str(model.kernelFunction), 'gaussianKernel')
     % Vectorized RBF Kernel
     % This is equivalent to computing the kernel on every pair of examples
